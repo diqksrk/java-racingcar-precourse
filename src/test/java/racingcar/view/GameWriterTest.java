@@ -4,7 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.common.GameMessage;
+import racingcar.common.message.GameMessage;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -33,6 +33,6 @@ class GameWriterTest {
         GameWriter.inquireCarNames();
 
         // Then
-        assertThat(GameMessage.NAME_REQUIRE_MESSAGE.getMessage()).isEqualTo(outputStream.toString().trim());
+        assertThat(GameMessage.NAME_REQUIRE_MESSAGE).isEqualTo(outputStream.toString().trim());
     }
 }
