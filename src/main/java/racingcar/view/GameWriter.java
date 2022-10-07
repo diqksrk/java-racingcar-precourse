@@ -8,6 +8,10 @@ public class GameWriter {
         System.out.println(GameMessage.NAMES_REQUIRE_MESSAGE);
     }
 
+    public static void inquireRounds() {
+        System.out.println(GameMessage.ROUNDS_REQUIRE_MESSAGE);
+    }
+
     public static void writeErrorMessage(String errorMessage) {
         System.out.println(errorMessage);
     }

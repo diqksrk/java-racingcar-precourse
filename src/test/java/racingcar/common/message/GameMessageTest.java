@@ -16,4 +16,14 @@ class GameMessageTest {
         // When && Then
         assertThat(testingString).isEqualTo(GameMessage.NAMES_REQUIRE_MESSAGE);
     }
+
+    @Test
+    @DisplayName("게임 라운드수 질의문 메시지")
+    void game_rounds_inquire_message_test() {
+        // Given
+        String testingString = "시도할 회수는 몇회인가요?";
+
+        // When && Then
+        assertThat(testingString).isEqualTo(GameMessage.ROUNDS_REQUIRE_MESSAGE);
+    }
 }

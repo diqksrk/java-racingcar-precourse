@@ -29,10 +29,26 @@ class GameWriterTest {
     @Test
     @DisplayName("자동차 이름 질의문 출력")
     void number_inquire_write_test() {
+        // Given
+        String testingStr = "경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)";
+
         // When
         GameWriter.inquireCarNames();
 
         // Then
-        assertThat(GameMessage.NAME_REQUIRE_MESSAGE).isEqualTo(outputStream.toString().trim());
+        assertThat(testingStr).isEqualTo(outputStream.toString().trim());
+    }
+
+    @Test
+    @DisplayName("라운드수 질의문 출력")
+    void rounds_inquire_write_test() {
+        // Given
+        String testingStr = "시도할 회수는 몇회인가요?";
+
+        // When
+        GameWriter.inquireRounds();
+
+        // Then
+        assertThat(testingStr).isEqualTo(outputStream.toString().trim());
     }
 }

@@ -10,11 +10,12 @@ public class GameController {
     public void gameStart() {
         try {
             GameWriter.inquireCarNames();
-            mechanic.initializingCars(GameReader.getCarNames());
-
+            mechanic.initializingCars(GameReader.readGameInput());
+            GameWriter.inquireRounds();
+            GameReader.readGameInput();
         } catch (Exception e) {
             GameWriter.writeErrorMessage(e.getMessage());
-            GameReader.getCarNames();
+            GameReader.readGameInput();
         }
     }
 }
