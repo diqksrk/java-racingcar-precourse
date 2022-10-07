@@ -8,9 +8,10 @@ public class GameController {
     Mechanic mechanic = new Mechanic();
 
     public void gameStart() {
-        GameWriter.inquireCarNames();
         try {
+            GameWriter.inquireCarNames();
             mechanic.initializingCars(GameReader.getCarNames());
+
         } catch (Exception e) {
             GameWriter.writeErrorMessage(e.getMessage());
             GameReader.getCarNames();
