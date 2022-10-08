@@ -1,21 +1,36 @@
 package racingcar.controller;
 
 import racingcar.model.Mechanic;
+import racingcar.model.RaceOfficial;
 import racingcar.view.GameReader;
 import racingcar.view.GameWriter;
 
 public class GameController {
     Mechanic mechanic = new Mechanic();
+    RaceOfficial raceOfficial = new RaceOfficial();
 
     public void gameStart() {
+        GameWriter.inquireCarNames();
+        setGameCar();
+        GameWriter.inquireRounds();
+        setGameRounds();
+    }
+
+    private void setGameCar() {
         try {
-            GameWriter.inquireCarNames();
-            mechanic.initializingCars(GameReader.readGameInput());
-            GameWriter.inquireRounds();
-            GameReader.readGameInput();
+            mechanic.initializingCars(GameReader.readGameCarGames());
         } catch (Exception e) {
             GameWriter.writeErrorMessage(e.getMessage());
-            GameReader.readGameInput();
+            mechanic.initializingCars(GameReader.readGameCarGames());
+        }
+    }
+
+    private void setGameRounds() {
+        try {
+            raceOfficial.setRounds(GameReader.readGameRounds());
+        } catch (Exception e) {
+            GameWriter.writeErrorMessage(e.getMessage());
+            raceOfficial.setRounds(GameReader.readGameRounds());
         }
     }
 }

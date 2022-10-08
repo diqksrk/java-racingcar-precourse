@@ -18,9 +18,6 @@ class RacingCarTest {
     @ParameterizedTest(name = "{index} {displayName} message={0}")
     @ValueSource(strings = {"~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")"})
     void name_contain_special_character_test(String racingCarName) {
-        // Given
-        String str = racingCarName;
-
         // When && Then
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> new RacingCar(racingCarName) )
@@ -32,9 +29,6 @@ class RacingCarTest {
     @ParameterizedTest(name = "{index} {displayName} message={0}")
     @ValueSource(strings = {"123456", "거북이와두루미", "가나다라마바사자차카"})
     void valid_name_length_test(String racingCarName) {
-        // Given
-        String str = racingCarName;
-
         // When && Then
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> new RacingCar(racingCarName) )
@@ -46,9 +40,6 @@ class RacingCarTest {
     @ParameterizedTest(name = "{index} {displayName} message={0}")
     @ValueSource(strings = {"phobi", "wony", "jun"})
     void racing_car_get_name_test(String racingCarName) {
-        // Given
-        String str = racingCarName;
-
         // when
         racingCar = new RacingCar(racingCarName);
 

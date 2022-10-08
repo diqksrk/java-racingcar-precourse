@@ -31,6 +31,28 @@ class ExceptionMessageTest {
         assertThat(str).isEqualTo(ExceptionMessage.CONTAIN_SPECIAL_CHARACTER_EXCEPTION_MESSAGE);
     }
 
+    @Test
+    @DisplayName("라운드 수 숫자외 문자 포함 에러 메시지")
+    void round_number_not_contain_only_digit_exception_message_test() {
+        // Given
+        String str = "[ERROR] 라운드수는 숫자외의 문자가 포함되서는 안됩니다.";
+
+        // When && Then
+        testRequireMethod(str);
+        assertThat(str).isEqualTo(ExceptionMessage.NOT_CONTAIN_ONLY_NUMBER_EXCEPTION_MESSAGE);
+    }
+
+    @Test
+    @DisplayName("최대 라운드수 초과 라운드 에러 메시지")
+    void max_round_number_exception_message_test() {
+        // Given
+        String str = "[ERROR] 최대 입력 가능한 라운드 수는 1000라운드입니다.";
+
+        // When && Then
+        testRequireMethod(str);
+        assertThat(str).isEqualTo(ExceptionMessage.MAX_ROUND_NUMBER_EXCEPTION_MESSAGE);
+    }
+
     private void testRequireMethod(String errorMessage) {
         assertThat( errorMessage.contains(this.requireWord) );
     }

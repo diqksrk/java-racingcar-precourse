@@ -2,11 +2,12 @@ package racingcar.model;
 
 import racingcar.common.message.ExceptionMessage;
 import racingcar.exception.InvalidRacingCarNameLengthException;
+import racingcar.exception.InvalidRoundNumberException;
 import racingcar.exception.SpecialCharacterContainException;
 import racingcar.utils.PatternUtils;
 
 public class RacingCar {
-    private int MAX_NAME_LENGTH = 5;
+    private final int MAX_NAME_LENGTH = 5;
 
     private String name;
 
