@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.exception.InvalidRacingCarNameLengthException;
@@ -45,5 +46,19 @@ class RacingCarTest {
 
         // Then
         assertThat(racingCar.getName()).isEqualTo(racingCarName);
+    }
+
+
+    @Test
+    @DisplayName("레이싱카가 앞으로 한칸 이동하는 경우")
+    void move_forward_test() {
+        // Given
+        racingCar = new RacingCar("name");
+
+        // When
+        racingCar.moveForward();
+
+        // Then
+        assertThat(racingCar.getPosition()).isEqualTo(1);
     }
 }

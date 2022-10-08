@@ -12,6 +12,10 @@ public class Mechanic {
         giveNameToRacingCars(carNames);
     }
 
+    public List getRacingCars() {
+        return this.racingCars;
+    }
+
     private void giveNameToRacingCars(String carNames) {
         for (String carName : carNames.split(",")) {
             racingCars.add(new RacingCar(carName));

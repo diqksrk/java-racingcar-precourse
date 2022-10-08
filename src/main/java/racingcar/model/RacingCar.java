@@ -2,7 +2,6 @@ package racingcar.model;
 
 import racingcar.common.message.ExceptionMessage;
 import racingcar.exception.InvalidRacingCarNameLengthException;
-import racingcar.exception.InvalidRoundNumberException;
 import racingcar.exception.SpecialCharacterContainException;
 import racingcar.utils.PatternUtils;
 
@@ -10,6 +9,7 @@ public class RacingCar {
     private final int MAX_NAME_LENGTH = 5;
 
     private String name;
+    private int position = 0;
 
     public RacingCar(String carName) {
         if (PatternUtils.containSpecialCharacter(carName)) {
@@ -24,6 +24,12 @@ public class RacingCar {
 
     public String getName() {
         return this.name;
+    }
+
+    public int getPosition() { return this.position; }
+
+    public void moveForward() {
+        this.position += 1;
     }
 
     private boolean isValidNameLength(String carName) {

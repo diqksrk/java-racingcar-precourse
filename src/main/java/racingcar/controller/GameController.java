@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.Mechanic;
 import racingcar.model.RaceOfficial;
+import racingcar.model.RacingCar;
 import racingcar.view.GameReader;
 import racingcar.view.GameWriter;
 
@@ -14,6 +15,7 @@ public class GameController {
         setGameCar();
         GameWriter.inquireRounds();
         setGameRounds();
+        raceOfficial.raceStart(mechanic.getRacingCars());
     }
 
     private void setGameCar() {
