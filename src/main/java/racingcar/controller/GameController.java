@@ -16,7 +16,8 @@ public class GameController {
         setGameCar();
         GameWriter.inquireRounds();
         setGameRounds();
-//        raceOfficial.raceStart(mechanic.getRacingCars());
+        raceOfficial.raceStart(mechanic.getRacingCars());
+        raceOfficial.decideRaceWinnders(mechanic.getRacingCars());
     }
 
     private void setGameCar() {

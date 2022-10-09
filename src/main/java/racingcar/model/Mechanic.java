@@ -10,6 +10,10 @@ public class Mechanic {
         giveNameToRacingCars(carNames, gameErrors);
     }
 
+    public List<RacingCar> getRacingCars() {
+        return racingCars;
+    }
+
     private void giveNameToRacingCars(String carNames, GameErrors gameErrors) {
         for (String carName : carNames.split(",")) {
             racingCars.add(new RacingCar(carName, gameErrors));
