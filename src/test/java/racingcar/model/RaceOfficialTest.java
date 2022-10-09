@@ -15,6 +15,7 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 @DisplayName("model - RaceOfficial")
 class RaceOfficialTest {
     private RaceOfficial raceOfficial;
+    private GameErrors gameErrors;
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
@@ -42,7 +43,7 @@ class RaceOfficialTest {
         List<RacingCar> racingCars = new ArrayList<>();
 
         // When
-        racingCars.add(new RacingCar("phobi"));
+        racingCars.add(new RacingCar("phobi", gameErrors));
 
         // Then
         assertRandomNumberInRangeTest(

@@ -10,10 +10,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayName("model - Mechanic")
 class MechanicTest {
     private Mechanic mechanic;
+    private GameErrors gameErrors;
 
     @BeforeEach
     void setUp() {
         mechanic = new Mechanic();
+        gameErrors = new GameErrors();
     }
 
     @DisplayName("레이싱카에 올바른 이름이 할당되는 경우")
@@ -24,7 +26,7 @@ class MechanicTest {
         int racingCarsNumber = racingCarName.split(",").length;
 
         // when
-        mechanic.initializingCars(racingCarName);
+        mechanic.initializingCars(racingCarName, gameErrors);
 
         // Then
         assertThat(mechanic.racingCars.size()).isEqualTo(racingCarsNumber);
