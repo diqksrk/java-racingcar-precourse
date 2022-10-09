@@ -24,7 +24,7 @@ class ExceptionMessageTest {
     @DisplayName("자동차 이름 특수문자 포함 에러 메시지")
     void racing_car_name_contain_speicial_character_exception_message_test() {
         // Given
-        String str = "[ERROR] 레이싱카 이름에 특수문자가 포함되서는 안됩니다.";
+        String str = "[ERROR] 레이싱카 이름에 특수문자가 포함되서는 안됩니다(공백문자 포함).";
 
         // When && Then
         testRequireMethod(str);

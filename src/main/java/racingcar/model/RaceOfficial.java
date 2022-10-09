@@ -7,8 +7,8 @@ import java.util.List;
 public class RaceOfficial {
     Rounds rounds;
 
-    public void setRounds(String rounds) throws IllegalArgumentException {
-        this.rounds = new Rounds(rounds);
+    public void setRounds(String roundNumber) throws IllegalArgumentException {
+        this.rounds = new Rounds(roundNumber);
     }
 
     public void raceStart(List<RacingCar> racingCars) {
