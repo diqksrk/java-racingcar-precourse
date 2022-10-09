@@ -3,6 +3,7 @@ package racingcar.model;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.exception.InvalidRacingCarNameLengthException;
 import racingcar.exception.SpecialCharacterContainException;
@@ -18,6 +19,7 @@ class RacingCarTest {
     @DisplayName("특수문자가 이름에 포함되는 경우")
     @ParameterizedTest(name = "{index} {displayName} message={0}")
     @ValueSource(strings = {"~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")"})
+    @NullAndEmptySource
     void name_contain_special_character_test(String racingCarName) {
         // When && Then
         assertSimpleTest(() ->
@@ -28,7 +30,7 @@ class RacingCarTest {
 
     @DisplayName("이름이 5글자를 초과하는 경우")
     @ParameterizedTest(name = "{index} {displayName} message={0}")
-    @ValueSource(strings = {"123456", "거북이와두루미", "가나다라마바사자차카"})
+    @ValueSource(strings = {"123456", "거북이와두루미", "가나다라마바사자차카", "100000000000000000000000000000000000000"})
     void valid_name_length_test(String racingCarName) {
         // When && Then
         assertSimpleTest(() ->

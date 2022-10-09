@@ -1,7 +1,9 @@
 package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.exception.InvalidRoundNumberException;
 import racingcar.exception.NotContatinNumberException;
@@ -16,6 +18,7 @@ class RoundsTest {
     @DisplayName("숫자외의 문자가 라운드에 포함되는 경우")
     @ParameterizedTest(name = "{index} {displayName} message={0}")
     @ValueSource(strings = {"~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "ㅇㄴㅇㅁㄴ", "abd"})
+    @NullAndEmptySource
     void name_contain_special_character_test(String roundNumber) {
         // When && Then
         assertSimpleTest(() ->
@@ -32,6 +35,22 @@ class RoundsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> new Rounds(roundNumber) )
                         .isInstanceOf(InvalidRoundNumberException.class)
+        );
+    }
+
+    @Test
+    @DisplayName("라운드수가 최대 int수의 라운드를 초과하는 경우")
+    void max_int_size_test() {
+        // Given
+        String maxRoundNumber;
+
+        // When
+        maxRoundNumber = "100000000000000000000000000000000000";
+
+        // Then
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> new Rounds(maxRoundNumber) )
+                        .isInstanceOf(NumberFormatException.class)
         );
     }
 
