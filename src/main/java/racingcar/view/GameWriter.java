@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.common.message.GameMessage;
+import racingcar.message.GameMessage;
 import racingcar.model.RaceWinners;
 import racingcar.model.RacingCar;
 import racingcar.utils.MessageUtils;

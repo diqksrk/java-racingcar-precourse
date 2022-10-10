@@ -1,7 +1,7 @@
 package racingcar.model;
 
 import org.junit.platform.commons.util.StringUtils;
-import racingcar.common.message.ExceptionMessage;
+import racingcar.message.ExceptionMessage;
 import racingcar.exception.InvalidRacingCarNameLengthException;
 import racingcar.exception.SpecialCharacterContainException;
 import racingcar.utils.PatternUtils;

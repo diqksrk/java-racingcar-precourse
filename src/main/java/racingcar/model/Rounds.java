@@ -1,7 +1,7 @@
 package racingcar.model;
 
 import org.junit.platform.commons.util.StringUtils;
-import racingcar.common.message.ExceptionMessage;
+import racingcar.message.ExceptionMessage;
 import racingcar.exception.InvalidRoundNumberException;
 import racingcar.exception.NotContatinNumberException;
 import racingcar.utils.PatternUtils;

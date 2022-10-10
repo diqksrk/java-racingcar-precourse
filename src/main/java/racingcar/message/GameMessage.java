@@ -1,4 +1,4 @@
-package racingcar.common.message;
+package racingcar.message;
 
 public class   GameMessage {
 
