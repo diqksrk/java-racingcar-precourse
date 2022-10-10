@@ -26,4 +26,14 @@ class GameMessageTest {
         // When && Then
         assertThat(testingString).isEqualTo(GameMessage.ROUNDS_REQUIRE_MESSAGE);
     }
+
+    @Test
+    @DisplayName("라운드 실행전 안내 메시지")
+    void info_message_befroe_round_start_test() {
+        // Given
+        String testingString = "실행 결과(실행 결과는 전진하는 수를 나타내는게 아닌 해당 라운드 실행후 레이싱카의 현재 위치를 표시합니다)";
+
+        // When && Then
+        assertThat(testingString).isEqualTo(GameMessage.INFO_MESSAGE_BEFORE_RODUN_START);
+    }
 }

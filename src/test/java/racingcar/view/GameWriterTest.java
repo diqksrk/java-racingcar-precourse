@@ -51,4 +51,17 @@ class GameWriterTest {
         // Then
         assertThat(testingStr).isEqualTo(outputStream.toString().trim());
     }
+
+    @Test
+    @DisplayName("라운드 시작전 안내메시지 출력")
+    void info_before_round_start_write_test() {
+        // Given
+        String testingStr = "실행 결과(실행 결과는 전진하는 수를 나타내는게 아닌 해당 라운드 실행후 레이싱카의 현재 위치를 표시합니다)";
+
+        // When
+        GameWriter.writeInfoBeforeRoundStart();
+
+        // Then
+        assertThat(testingStr).isEqualTo(outputStream.toString().trim());
+    }
 }

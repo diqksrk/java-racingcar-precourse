@@ -16,8 +16,15 @@ public class GameController {
         setGameCar();
         GameWriter.inquireRounds();
         setGameRounds();
-        raceOfficial.raceStart(mechanic.getRacingCars());
-        raceOfficial.decideRaceWinnders(mechanic.getRacingCars());
+        raceStart();
+    }
+
+    private void raceStart() {
+        GameWriter.writeInfoBeforeRoundStart();
+        for (int i = 0; i < raceOfficial.getRounds().getNumber(); i++) {
+            raceOfficial.roundStart(mechanic.getRacingCars());
+//            GameWriter.writeRoundResult(mechanic.getRacingCars());
+        }
     }
 
     private void setGameCar() {
@@ -25,7 +32,7 @@ public class GameController {
             gameErrors.clear();
             mechanic.initializingCars(GameReader.readGameCarGames(), gameErrors);
             if (gameErrors.hasError()) {
-                GameWriter.writeErrorMessage(gameErrors.getDefaultMessage());
+                GameWriter.writeError(gameErrors.getDefaultMessage());
             }
         } while (gameErrors.hasError());
     }
@@ -35,7 +42,7 @@ public class GameController {
             gameErrors.clear();
             raceOfficial.setRounds(GameReader.readGameRounds());
             if (gameErrors.hasError()) {
-                GameWriter.writeErrorMessage(gameErrors.getDefaultMessage());
+                GameWriter.writeError(gameErrors.getDefaultMessage());
             }
         } while (gameErrors.hasError());
     }

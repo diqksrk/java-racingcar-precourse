@@ -22,6 +22,10 @@ public class RaceOfficial {
         this.rounds = new Rounds(roundNumber);
     }
 
+    public Rounds getRounds() {
+        return this.rounds;
+    }
+
     public void raceStart(List<RacingCar> racingCars) {
         for (int i = 0; i < rounds.getNumber(); i++) {
             roundStart(racingCars);
@@ -43,7 +47,7 @@ public class RaceOfficial {
         return racingCar.getPosition() >= winnerPosition;
     }
 
-    private void roundStart(List<RacingCar> racingCars) {
+    public void roundStart(List<RacingCar> racingCars) {
         for (RacingCar racingCar : racingCars) {
             decideCarMoving(racingCar);
         }

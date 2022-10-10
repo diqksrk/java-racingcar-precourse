@@ -12,7 +12,12 @@ public class GameWriter {
         System.out.println(GameMessage.ROUNDS_REQUIRE_MESSAGE);
     }
 
-    public static void writeErrorMessage(String errorMessage) {
+    public static void writeError(String errorMessage) {
         System.out.println(errorMessage);
     }
+
+    public static void writeInfoBeforeRoundStart() {
+        System.out.println(GameMessage.INFO_MESSAGE_BEFORE_RODUN_START);
+    }
+
 }
