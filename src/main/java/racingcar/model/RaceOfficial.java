@@ -8,10 +8,10 @@ import java.util.List;
 public class RaceOfficial {
     Rounds rounds;
 
-    public RaceWinners decideRaceWinnders(List<RacingCar> racingCars) {
+    public RaceWinners decideRaceWinnders(RacingCarCenter racingCarCenter) {
         RaceWinners raceWinners = new RaceWinners();
-        lineUpRacingCars(racingCars, raceWinners);
-        for (RacingCar racingCar : racingCars) {
+        lineUpRacingCars(racingCarCenter.getRacingCars(), raceWinners);
+        for (RacingCar racingCar : racingCarCenter.getRacingCars()) {
             addIfRaceWinner(racingCar, raceWinners, raceWinners.getRaceWinnderPosition());
         }
 
@@ -31,9 +31,9 @@ public class RaceOfficial {
         return this.rounds;
     }
 
-    public void raceStart(List<RacingCar> racingCars) {
+    public void raceStart(RacingCarCenter racingCarCenter) {
         for (int i = 0; i < rounds.getNumber(); i++) {
-            roundStart(racingCars);
+            roundStart(racingCarCenter);
         }
     }
 
@@ -52,8 +52,8 @@ public class RaceOfficial {
         return racingCar.getPosition() >= winnerPosition;
     }
 
-    public void roundStart(List<RacingCar> racingCars) {
-        for (RacingCar racingCar : racingCars) {
+    public void roundStart(RacingCarCenter racingCarCenter) {
+        for (RacingCar racingCar : racingCarCenter.getRacingCars()) {
             decideCarMoving(racingCar);
         }
     }

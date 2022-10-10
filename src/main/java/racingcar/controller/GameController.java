@@ -18,15 +18,15 @@ public class GameController {
         setGameRounds();
         raceStart();
         GameWriter.writeRaceResult(
-                                raceOfficial.decideRaceWinnders( mechanic.getRacingCars() )
+                                raceOfficial.decideRaceWinnders( mechanic.getRacingCarCenter() )
                                   );
     }
 
     private void raceStart() {
         GameWriter.writeInfoBeforeRoundStart();
         for (int i = 0; i < raceOfficial.getRounds().getNumber(); i++) {
-            raceOfficial.roundStart(mechanic.getRacingCars());
-            GameWriter.writeRoundResult(mechanic.getRacingCars());
+            raceOfficial.roundStart(mechanic.getRacingCarCenter());
+            GameWriter.writeRoundResult(mechanic.getRacingCarCenter());
         }
     }
 

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mechanic {
-    List<RacingCar> racingCars = new ArrayList<>();
+    RacingCarCenter racingCarCenter;
 
     public void initializingCars(String carNames, GameErrors gameErrors) {
         try {
@@ -19,16 +19,18 @@ public class Mechanic {
         }
     }
 
-    public List<RacingCar> getRacingCars() {
-        return racingCars;
+    public RacingCarCenter getRacingCarCenter() {
+        return racingCarCenter;
     }
 
     private void giveNameToRacingCars(String carNames) throws SpecialCharacterContainException, InvalidRacingCarNameLengthException {
+        List<RacingCar> curRacingCars = new ArrayList<>();
         String[] carNameList = carNames.split(",");
         if (carNameList.length == 0) throw new SpecialCharacterContainException(ExceptionMessage.CONTAIN_SPECIAL_CHARACTER_EXCEPTION_MESSAGE);
 
         for (String carName : carNameList) {
-            racingCars.add(new RacingCar(carName));
+            curRacingCars.add(new RacingCar(carName));
         }
+        this.racingCarCenter = new RacingCarCenter(curRacingCars);
     }
 }

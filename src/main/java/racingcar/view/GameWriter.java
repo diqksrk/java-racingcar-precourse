@@ -3,6 +3,7 @@ package racingcar.view;
 import racingcar.message.GameMessage;
 import racingcar.model.RaceWinners;
 import racingcar.model.RacingCar;
+import racingcar.model.RacingCarCenter;
 import racingcar.utils.MessageUtils;
 
 import java.util.List;
@@ -25,8 +26,8 @@ public class GameWriter {
         System.out.println(GameMessage.INFO_MESSAGE_BEFORE_RODUN_START);
     }
 
-    public static void writeRoundResult(List<RacingCar> racingCars) {
-        for (RacingCar racingCar : racingCars) {
+    public static void writeRoundResult(RacingCarCenter racingCarCenter) {
+        for (RacingCar racingCar : racingCarCenter.getRacingCars()) {
             System.out.println(racingCar.getName() + " : " + MessageUtils.replcaePositionToSpecialCharacter(racingCar, "-"));
         }
         System.out.println();

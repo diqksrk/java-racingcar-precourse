@@ -43,6 +43,7 @@ class RaceOfficialTest {
     void round_start_test() {
         // Given
         List<RacingCar> racingCars = new ArrayList<>();
+        RacingCarCenter racingCarCenter = new RacingCarCenter(racingCars);
 
         // When
         raceOfficial.setRounds("1", gameErrors);
@@ -51,7 +52,7 @@ class RaceOfficialTest {
         // Then
         assertRandomNumberInRangeTest(
                 () -> {
-                    raceOfficial.raceStart(racingCars);
+                    raceOfficial.raceStart(racingCarCenter);
                     assertThat( racingCars.get(0).getPosition() ).isEqualTo(1);
                 },
                 MOVING_FORWARD
@@ -63,6 +64,7 @@ class RaceOfficialTest {
     void race_start_test() {
         // Given
         List<RacingCar> racingCars = new ArrayList<>();
+        RacingCarCenter racingCarCenter = new RacingCarCenter(racingCars);
 
         // When
         raceOfficial.setRounds("2", gameErrors);
@@ -71,7 +73,7 @@ class RaceOfficialTest {
         // Then
         assertRandomNumberInRangeTest(
                 () -> {
-                    raceOfficial.raceStart(racingCars);
+                    raceOfficial.raceStart(racingCarCenter);
                     assertThat( racingCars.get(0).getPosition() ).isEqualTo(1);
                 },
                 MOVING_FORWARD, STOP
@@ -83,6 +85,7 @@ class RaceOfficialTest {
     void race_start_test2() {
         // Given
         List<RacingCar> racingCars = new ArrayList<>();
+        RacingCarCenter racingCarCenter = new RacingCarCenter(racingCars);
 
         // When
         raceOfficial.setRounds("2", gameErrors);
@@ -91,7 +94,7 @@ class RaceOfficialTest {
         // Then
         assertRandomNumberInRangeTest(
                 () -> {
-                    raceOfficial.raceStart(racingCars);
+                    raceOfficial.raceStart(racingCarCenter);
                     assertThat( racingCars.get(0).getPosition() ).isEqualTo(2);
                 },
                 MOVING_FORWARD, MOVING_FORWARD
@@ -103,6 +106,7 @@ class RaceOfficialTest {
     void race_start_test3() {
         // Given
         List<RacingCar> racingCars = new ArrayList<>();
+        RacingCarCenter racingCarCenter = new RacingCarCenter(racingCars);
 
         // When
         raceOfficial.setRounds("2", gameErrors);
@@ -111,7 +115,7 @@ class RaceOfficialTest {
         // Then
         assertRandomNumberInRangeTest(
                 () -> {
-                    raceOfficial.raceStart(racingCars);
+                    raceOfficial.raceStart(racingCarCenter);
                     assertThat( racingCars.get(0).getPosition() ).isEqualTo(0);
                 },
                 STOP, STOP
@@ -123,6 +127,7 @@ class RaceOfficialTest {
     void race_start_test4() {
         // Given
         List<RacingCar> racingCars = new ArrayList<>();
+        RacingCarCenter racingCarCenter = new RacingCarCenter(racingCars);
 
         // When
         raceOfficial.setRounds("2", gameErrors);
@@ -132,7 +137,7 @@ class RaceOfficialTest {
         // Then
         assertRandomNumberInRangeTest(
                 () -> {
-                    raceOfficial.raceStart(racingCars);
+                    raceOfficial.raceStart(racingCarCenter);
                 },
                 MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
         );
@@ -143,6 +148,7 @@ class RaceOfficialTest {
     void decide_race_winners_test() {
         // Given
         List<RacingCar> racingCars = new ArrayList<>();
+        RacingCarCenter racingCarCenter = new RacingCarCenter(racingCars);
 
         // When
         raceOfficial.setRounds("2", gameErrors);
@@ -150,11 +156,11 @@ class RaceOfficialTest {
         racingCars.add(new RacingCar("bio"));
         assertRandomNumberInRangeTest(
                 () -> {
-                    raceOfficial.raceStart(racingCars);
+                    raceOfficial.raceStart(racingCarCenter);
                 },
                 MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
         );
-        raceWinners = raceOfficial.decideRaceWinnders(racingCars);
+        raceWinners = raceOfficial.decideRaceWinnders(racingCarCenter);
 
         // Then
         assertAll(
@@ -169,6 +175,7 @@ class RaceOfficialTest {
     void decide_race_winners_test2() {
         // Given
         List<RacingCar> racingCars = new ArrayList<>();
+        RacingCarCenter racingCarCenter = new RacingCarCenter(racingCars);
 
         // When
         raceOfficial.setRounds("2", gameErrors);
@@ -176,11 +183,11 @@ class RaceOfficialTest {
         racingCars.add(new RacingCar("bio"));
         assertRandomNumberInRangeTest(
                 () -> {
-                    raceOfficial.raceStart(racingCars);
+                    raceOfficial.raceStart(racingCarCenter);
                 },
                 MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
         );
-        raceWinners = raceOfficial.decideRaceWinnders(racingCars);
+        raceWinners = raceOfficial.decideRaceWinnders(racingCarCenter);
 
         // Then
         assertAll(
@@ -196,6 +203,7 @@ class RaceOfficialTest {
     void decide_race_winners_test3() {
         // Given
         List<RacingCar> racingCars = new ArrayList<>();
+        RacingCarCenter racingCarCenter = new RacingCarCenter(racingCars);
 
         // When
         raceOfficial.setRounds("3", gameErrors);
@@ -204,11 +212,11 @@ class RaceOfficialTest {
         racingCars.add(new RacingCar("haru"));
         assertRandomNumberInRangeTest(
                 () -> {
-                    raceOfficial.raceStart(racingCars);
+                    raceOfficial.raceStart(racingCarCenter);
                 },
                 MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
         );
-        raceWinners = raceOfficial.decideRaceWinnders(racingCars);
+        raceWinners = raceOfficial.decideRaceWinnders(racingCarCenter);
 
         // Then
         assertAll(

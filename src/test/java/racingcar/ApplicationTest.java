@@ -12,10 +12,11 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ApplicationTest extends NsTest {
+    private static final String ERROR_MESSAGE = "[ERROR]";
+    private final static int testRepeat = 1000;
+
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
-
-    private static final String ERROR_MESSAGE = "[ERROR]";
 
     @Test
     void 전진_정지() {
@@ -168,6 +169,45 @@ class ApplicationTest extends NsTest {
                 () -> {
                     runException(carName, roundNumber);
                     assertThat(output()).contains(ExceptionMessage.MIN_ROUND_NUMBER_EXCEPTION_MESSAGE);
+                }
+        );
+    }
+
+    @Test
+    @DisplayName("[레이싱 카] - 할당 가능한 레이싱카 초과할 경우 예외 처리")
+    void racing_car_max_size_exception_test() {
+        // Given
+        StringBuilder stringBuilder = new StringBuilder();
+
+        // When
+        for (int i = 0; i < testRepeat; i++) {
+            stringBuilder.append("A,");
+        }
+        stringBuilder.setLength(stringBuilder.length() - 1);
+
+        // Then
+        assertSimpleTest(
+                () -> {
+                    runException(stringBuilder.toString(), "1");
+                    assertThat(output()).contains(ExceptionMessage.RACING_CAR_MAX_SIZE_EXCEPTION_MESSAGE);
+                }
+        );
+    }
+
+    @Test
+    @DisplayName("[레이싱 카] - 레이싱카가 중복된 이름을 가질 경우 예외 처리")
+    void racing_car_duplication_name_exception_test() {
+        // Given
+        String carName;
+
+        // When
+        carName = "phobi,phobi";
+
+        // Then
+        assertSimpleTest(
+                () -> {
+                    runException(carName, "1");
+                    assertThat(output()).contains(ExceptionMessage.RACING_CAR_NAME_DUPLICATION_EXCEPTION_MESSAGE);
                 }
         );
     }

@@ -29,6 +29,6 @@ class MechanicTest {
         mechanic.initializingCars(racingCarName, gameErrors);
 
         // Then
-        assertThat(mechanic.racingCars.size()).isEqualTo(racingCarsNumber);
+        assertThat(mechanic.racingCarCenter.getRacingCars().size()).isEqualTo(racingCarsNumber);
     }
 }
