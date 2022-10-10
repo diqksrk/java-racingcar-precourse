@@ -12,6 +12,7 @@ import java.util.List;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+@DisplayName("model - RacingCarCenter")
 class RacingCarCenterTest {
     private final int testRepeat = 1000;
 
