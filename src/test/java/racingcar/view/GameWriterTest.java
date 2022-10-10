@@ -4,7 +4,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.common.message.GameMessage;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -56,7 +55,7 @@ class GameWriterTest {
     @DisplayName("라운드 시작전 안내메시지 출력")
     void info_before_round_start_write_test() {
         // Given
-        String testingStr = "실행 결과(실행 결과는 전진하는 수를 나타내는게 아닌 해당 라운드 실행후 레이싱카의 현재 위치를 표시합니다)";
+        String testingStr = "실행 결과(실행 결과는 누적 전진수를 의미합니다. - 문자는 한칸을 전진했다는걸 의미합니다.)";
 
         // When
         GameWriter.writeInfoBeforeRoundStart();

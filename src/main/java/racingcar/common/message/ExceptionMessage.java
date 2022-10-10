@@ -6,4 +6,5 @@ public class ExceptionMessage {
 
     public static final String NOT_CONTAIN_ONLY_NUMBER_EXCEPTION_MESSAGE = "[ERROR] 라운드수는 숫자외의 문자가 포함되서는 안됩니다.";
     public static final String MAX_ROUND_NUMBER_EXCEPTION_MESSAGE = "[ERROR] 최대 입력 가능한 라운드 수는 1000라운드입니다.";
+    public static final String MIN_ROUND_NUMBER_EXCEPTION_MESSAGE = "[ERROR] 최소 입력 가능한 라운드 수는 1라운드입니다.";
 }

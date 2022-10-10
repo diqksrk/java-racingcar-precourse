@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,8 +13,15 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+@DisplayName("model ( Rounds )")
 class RoundsTest {
     private Rounds rounds;
+    private GameErrors gameErrors;
+
+    @BeforeEach
+    void setUp() {
+        gameErrors = new GameErrors();
+    }
 
     @DisplayName("숫자외의 문자가 라운드에 포함되는 경우")
     @ParameterizedTest(name = "{index} {displayName} message={0}")
@@ -50,7 +58,7 @@ class RoundsTest {
         // Then
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> new Rounds(maxRoundNumber) )
-                        .isInstanceOf(NumberFormatException.class)
+                        .isInstanceOf(InvalidRoundNumberException.class)
         );
     }
 

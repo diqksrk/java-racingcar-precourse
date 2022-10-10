@@ -1,6 +1,11 @@
 package racingcar.view;
 
 import racingcar.common.message.GameMessage;
+import racingcar.model.RaceWinners;
+import racingcar.model.RacingCar;
+import racingcar.utils.MessageUtils;
+
+import java.util.List;
 
 public class GameWriter {
 
@@ -20,4 +25,20 @@ public class GameWriter {
         System.out.println(GameMessage.INFO_MESSAGE_BEFORE_RODUN_START);
     }
 
+    public static void writeRoundResult(List<RacingCar> racingCars) {
+        for (RacingCar racingCar : racingCars) {
+            System.out.println(racingCar.getName() + " : " + MessageUtils.replcaePositionToSpecialCharacter(racingCar, "-"));
+        }
+        System.out.println();
+    }
+
+    public static void writeRaceResult(RaceWinners raceWinners) {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("최종 우승자 : ");
+        for (RacingCar raceWinner : raceWinners.getRaceWinners()) {
+            stringBuilder.append(raceWinner.getName());
+            stringBuilder.append(", ");
+        }
+        System.out.println( stringBuilder.substring(0, stringBuilder.length() - 2) );
+    }
 }

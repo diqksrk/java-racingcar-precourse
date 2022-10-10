@@ -12,13 +12,9 @@ public class RacingCar {
     private String name;
     private int position = 0;
 
-    public RacingCar(String carName, GameErrors gameErrors) {
-        try {
-            checkIfContainblankAndSpecialChracter(carName);
-            checkIfExceedMaxNameLength(carName);
-        } catch (Exception e) {
-            gameErrors.setDefaultMessage(e.getMessage());
-        }
+    public RacingCar(String carName) throws SpecialCharacterContainException, InvalidRacingCarNameLengthException {
+        checkIfContainblankAndSpecialChracter(carName);
+        checkIfExceedMaxNameLength(carName);
 
         this.name = carName;
     }

@@ -32,7 +32,7 @@ class RaceOfficialTest {
     @ValueSource(ints = {1, 50, 999})
     void set_rounds_test(int roundNumber) {
         // when
-        raceOfficial.setRounds(String.valueOf(roundNumber));
+        raceOfficial.setRounds(String.valueOf(roundNumber), gameErrors);
 
         // Then
         assertThat(raceOfficial.rounds.getNumber()).isEqualTo(roundNumber);
@@ -45,8 +45,8 @@ class RaceOfficialTest {
         List<RacingCar> racingCars = new ArrayList<>();
 
         // When
-        raceOfficial.setRounds("1");
-        racingCars.add(new RacingCar("phobi", gameErrors));
+        raceOfficial.setRounds("1", gameErrors);
+        racingCars.add(new RacingCar("phobi"));
 
         // Then
         assertRandomNumberInRangeTest(
@@ -65,8 +65,8 @@ class RaceOfficialTest {
         List<RacingCar> racingCars = new ArrayList<>();
 
         // When
-        raceOfficial.setRounds("2");
-        racingCars.add(new RacingCar("phobi", gameErrors));
+        raceOfficial.setRounds("2", gameErrors);
+        racingCars.add(new RacingCar("phobi"));
 
         // Then
         assertRandomNumberInRangeTest(
@@ -85,8 +85,8 @@ class RaceOfficialTest {
         List<RacingCar> racingCars = new ArrayList<>();
 
         // When
-        raceOfficial.setRounds("2");
-        racingCars.add(new RacingCar("phobi", gameErrors));
+        raceOfficial.setRounds("2", gameErrors);
+        racingCars.add(new RacingCar("phobi"));
 
         // Then
         assertRandomNumberInRangeTest(
@@ -105,8 +105,8 @@ class RaceOfficialTest {
         List<RacingCar> racingCars = new ArrayList<>();
 
         // When
-        raceOfficial.setRounds("2");
-        racingCars.add(new RacingCar("phobi", gameErrors));
+        raceOfficial.setRounds("2", gameErrors);
+        racingCars.add(new RacingCar("phobi"));
 
         // Then
         assertRandomNumberInRangeTest(
@@ -125,9 +125,9 @@ class RaceOfficialTest {
         List<RacingCar> racingCars = new ArrayList<>();
 
         // When
-        raceOfficial.setRounds("2");
-        racingCars.add(new RacingCar("phobi", gameErrors));
-        racingCars.add(new RacingCar("bio", gameErrors));
+        raceOfficial.setRounds("2", gameErrors);
+        racingCars.add(new RacingCar("phobi"));
+        racingCars.add(new RacingCar("bio"));
 
         // Then
         assertRandomNumberInRangeTest(
@@ -145,9 +145,9 @@ class RaceOfficialTest {
         List<RacingCar> racingCars = new ArrayList<>();
 
         // When
-        raceOfficial.setRounds("2");
-        racingCars.add(new RacingCar("phobi", gameErrors));
-        racingCars.add(new RacingCar("bio", gameErrors));
+        raceOfficial.setRounds("2", gameErrors);
+        racingCars.add(new RacingCar("phobi"));
+        racingCars.add(new RacingCar("bio"));
         assertRandomNumberInRangeTest(
                 () -> {
                     raceOfficial.raceStart(racingCars);
@@ -171,9 +171,9 @@ class RaceOfficialTest {
         List<RacingCar> racingCars = new ArrayList<>();
 
         // When
-        raceOfficial.setRounds("2");
-        racingCars.add(new RacingCar("phobi", gameErrors));
-        racingCars.add(new RacingCar("bio", gameErrors));
+        raceOfficial.setRounds("2", gameErrors);
+        racingCars.add(new RacingCar("phobi"));
+        racingCars.add(new RacingCar("bio"));
         assertRandomNumberInRangeTest(
                 () -> {
                     raceOfficial.raceStart(racingCars);
@@ -198,10 +198,10 @@ class RaceOfficialTest {
         List<RacingCar> racingCars = new ArrayList<>();
 
         // When
-        raceOfficial.setRounds("3");
-        racingCars.add(new RacingCar("phobi", gameErrors));
-        racingCars.add(new RacingCar("bio", gameErrors));
-        racingCars.add(new RacingCar("haru", gameErrors));
+        raceOfficial.setRounds("3", gameErrors);
+        racingCars.add(new RacingCar("phobi"));
+        racingCars.add(new RacingCar("bio"));
+        racingCars.add(new RacingCar("haru"));
         assertRandomNumberInRangeTest(
                 () -> {
                     raceOfficial.raceStart(racingCars);

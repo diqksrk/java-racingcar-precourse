@@ -17,13 +17,16 @@ public class GameController {
         GameWriter.inquireRounds();
         setGameRounds();
         raceStart();
+        GameWriter.writeRaceResult(
+                                raceOfficial.decideRaceWinnders( mechanic.getRacingCars() )
+                                  );
     }
 
     private void raceStart() {
         GameWriter.writeInfoBeforeRoundStart();
         for (int i = 0; i < raceOfficial.getRounds().getNumber(); i++) {
             raceOfficial.roundStart(mechanic.getRacingCars());
-//            GameWriter.writeRoundResult(mechanic.getRacingCars());
+            GameWriter.writeRoundResult(mechanic.getRacingCars());
         }
     }
 
@@ -40,7 +43,7 @@ public class GameController {
     private void setGameRounds() {
         do {
             gameErrors.clear();
-            raceOfficial.setRounds(GameReader.readGameRounds());
+            raceOfficial.setRounds(GameReader.readGameRounds(), gameErrors);
             if (gameErrors.hasError()) {
                 GameWriter.writeError(gameErrors.getDefaultMessage());
             }

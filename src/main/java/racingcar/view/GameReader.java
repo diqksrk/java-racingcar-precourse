@@ -11,8 +11,4 @@ public class GameReader {
     public static String readGameRounds() {
         return Console.readLine();
     }
-
-    public static String readGameErrorInput() {
-        return Console.readLine();
-    }
 }

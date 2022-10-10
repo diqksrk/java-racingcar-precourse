@@ -18,8 +18,13 @@ public class RaceOfficial {
         return raceWinners;
     }
 
-    public void setRounds(String roundNumber) throws IllegalArgumentException {
-        this.rounds = new Rounds(roundNumber);
+    public void setRounds(String roundNumber, GameErrors gameErrors) {
+        try {
+            this.rounds = new Rounds(roundNumber);
+        } catch (Exception e) {
+            gameErrors.setDefaultMessage(e.getMessage());
+            return;
+        }
     }
 
     public Rounds getRounds() {

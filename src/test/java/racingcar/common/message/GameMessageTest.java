@@ -31,7 +31,7 @@ class GameMessageTest {
     @DisplayName("라운드 실행전 안내 메시지")
     void info_message_befroe_round_start_test() {
         // Given
-        String testingString = "실행 결과(실행 결과는 전진하는 수를 나타내는게 아닌 해당 라운드 실행후 레이싱카의 현재 위치를 표시합니다)";
+        String testingString = "실행 결과(실행 결과는 누적 전진수를 의미합니다. - 문자는 한칸을 전진했다는걸 의미합니다.)";
 
         // When && Then
         assertThat(testingString).isEqualTo(GameMessage.INFO_MESSAGE_BEFORE_RODUN_START);

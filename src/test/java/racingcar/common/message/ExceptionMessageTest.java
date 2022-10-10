@@ -53,6 +53,17 @@ class ExceptionMessageTest {
         assertThat(str).isEqualTo(ExceptionMessage.MAX_ROUND_NUMBER_EXCEPTION_MESSAGE);
     }
 
+    @Test
+    @DisplayName("최소 라운드수 미만 라운드 에러 메시지")
+    void min_round_number_exception_message_test() {
+        // Given
+        String str = "[ERROR] 최소 입력 가능한 라운드 수는 1라운드입니다.";
+
+        // When && Then
+        testRequireMethod(str);
+        assertThat(str).isEqualTo(ExceptionMessage.MIN_ROUND_NUMBER_EXCEPTION_MESSAGE);
+    }
+
     private void testRequireMethod(String errorMessage) {
         assertThat( errorMessage.contains(this.requireWord) );
     }
